@@ -1,0 +1,513 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Synergy Solutions - Código preciso. Crecimiento automatizado.</title>
+<meta name="description" content="Te armamos una página web rápida y nos ocupamos de tus redes sociales con ayuda de Inteligencia Artificial.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+<link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231F2937%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23D4AF37%22 font-family=%22Arial%22>S</text></svg>">
+</head>
+<body>
+
+<div class="noise-overlay" aria-hidden="true"></div>
+<div id="top-sentinel"></div>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="nav__logo" aria-label="Synergy Solutions, inicio">
+      <svg class="nav__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="markGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
+            <stop offset="0" stop-color="#E8E8E8"/>
+            <stop offset="1" stop-color="#D4AF37"/>
+          </linearGradient>
+        </defs>
+        <path d="M18 14C11.373 14 6 19.373 6 26C6 32.627 11.373 38 18 38C24.627 38 27 32 30 26C33 20 35.373 14 42 14C48.627 14 48.627 26 42 26C35.373 26 33 32 30 38C27 44 24.627 38 18 38" stroke="url(#markGrad)" stroke-width="3.4" stroke-linecap="round"/>
+      </svg>
+      <span class="nav__wordmark">Synergy<span class="nav__wordmark-accent">Solutions</span></span>
+    </a>
+
+    <nav class="nav__links" aria-label="Navegación principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#precios">Precios</a>
+    </nav>
+
+    <a href="#contacto" class="btn btn--primary btn--small nav__cta">Auditoría Gratis</a>
+
+    <button class="nav__burger" id="navBurger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+
+  <div class="nav__mobile" id="navMobile">
+    <a href="#servicios">Servicios</a>
+    <a href="#proceso">Cómo trabajamos</a>
+    <a href="#precios">Precios</a>
+    <a href="#contacto" class="btn btn--primary">Auditoría Gratis</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="container hero__grid">
+
+      <div class="hero__content" data-reveal>
+        <h1 class="hero__title">La infraestructura web que tu negocio necesita.<br>El contenido que lo hace escalar.</h1>
+        <p class="hero__subtitle">Te armamos una página web rápida y nos ocupamos de tus redes sociales con ayuda de Inteligencia Artificial.</p>
+        <div class="hero__ctas">
+          <a href="#contacto" class="btn btn--primary">Pedí tu Auditoría Gratis</a>
+          <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Synergy%20Solutions" target="_blank" rel="noopener" class="btn btn--ghost">
+            <i class="ph-bold ph-whatsapp-logo"></i>
+            Hablar por WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="hero__visual" data-reveal data-reveal-delay="1">
+        <div class="browser-float">
+          <div class="browser-mock" id="browserMock">
+            <div class="browser-mock__bar">
+              <span class="dot dot--red"></span>
+              <span class="dot dot--yellow"></span>
+              <span class="dot dot--green"></span>
+              <span class="browser-mock__url"><i class="ph ph-lock-simple"></i>tuempresa.com</span>
+            </div>
+            <div class="browser-mock__body">
+              <div class="browser-mock__nav">
+                <span class="mock-dot"></span>
+                <span class="mock-line mock-line--nav"></span>
+                <span class="mock-line mock-line--nav"></span>
+                <span class="mock-pill"></span>
+              </div>
+              <div class="browser-mock__hero">
+                <div class="browser-mock__copy">
+                  <span class="mock-line mock-line--lg"></span>
+                  <span class="mock-line mock-line--lg mock-line--short"></span>
+                  <span class="mock-line mock-line--sm"></span>
+                  <span class="mock-pill mock-pill--cta"></span>
+                </div>
+                <div class="browser-mock__art"></div>
+              </div>
+              <div class="browser-mock__grid">
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+                <span class="mock-card"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="speed-card" id="speedCard">
+          <svg class="speed-ring" viewBox="0 0 120 120" aria-hidden="true">
+            <circle class="speed-ring__track" cx="60" cy="60" r="52"></circle>
+            <circle class="speed-ring__fill" id="speedRingFill" cx="60" cy="60" r="52"></circle>
+          </svg>
+          <div class="speed-card__label">
+            <span class="speed-card__value" id="speedValue">0</span>
+            <span class="speed-card__unit">/100</span>
+          </div>
+          <span class="speed-card__caption">Velocidad de carga</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- MARQUEE: CONTENIDO PARA REDES -->
+  <section class="ig-marquee">
+    <div class="container">
+      <h2 class="section-title" data-reveal>Así se ve el contenido que armamos para redes.</h2>
+    </div>
+
+    <div class="marquee" aria-hidden="false">
+      <div class="marquee__track" id="marqueeTrack">
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-cafe/440/440" alt="Publicación de una cafetería en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-coffee"></i></span>
+            <div>
+              <span class="ig-card__name">Cafetería</span>
+              <span class="ig-card__tag">Contenido mensual</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-gym/440/440" alt="Publicación de un gimnasio en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-barbell"></i></span>
+            <div>
+              <span class="ig-card__name">Gimnasio</span>
+              <span class="ig-card__tag">Video vertical</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-boutique/440/440" alt="Publicación de una tienda de ropa en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-t-shirt"></i></span>
+            <div>
+              <span class="ig-card__name">Tienda de ropa</span>
+              <span class="ig-card__tag">Fotos de producto</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-resto/440/440" alt="Publicación de un restaurante en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-fork-knife"></i></span>
+            <div>
+              <span class="ig-card__name">Restaurante</span>
+              <span class="ig-card__tag">Promos semanales</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-clinica/440/440" alt="Publicación de una clínica estética en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-sparkle"></i></span>
+            <div>
+              <span class="ig-card__name">Clínica estética</span>
+              <span class="ig-card__tag">Antes y después</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-inmobiliaria/440/440" alt="Publicación de una inmobiliaria en Instagram" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-house-line"></i></span>
+            <div>
+              <span class="ig-card__name">Inmobiliaria</span>
+              <span class="ig-card__tag">Tour de propiedades</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <!-- duplicated set for seamless loop -->
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-cafe/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-coffee"></i></span>
+            <div>
+              <span class="ig-card__name">Cafetería</span>
+              <span class="ig-card__tag">Contenido mensual</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-gym/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-barbell"></i></span>
+            <div>
+              <span class="ig-card__name">Gimnasio</span>
+              <span class="ig-card__tag">Video vertical</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-boutique/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-t-shirt"></i></span>
+            <div>
+              <span class="ig-card__name">Tienda de ropa</span>
+              <span class="ig-card__tag">Fotos de producto</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-resto/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-fork-knife"></i></span>
+            <div>
+              <span class="ig-card__name">Restaurante</span>
+              <span class="ig-card__tag">Promos semanales</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-clinica/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-sparkle"></i></span>
+            <div>
+              <span class="ig-card__name">Clínica estética</span>
+              <span class="ig-card__tag">Antes y después</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+        <article class="ig-card" aria-hidden="true">
+          <div class="ig-card__photo"><img src="https://picsum.photos/seed/synergy-inmobiliaria/440/440" alt="" loading="lazy"></div>
+          <div class="ig-card__header">
+            <span class="ig-card__avatar"><i class="ph-bold ph-house-line"></i></span>
+            <div>
+              <span class="ig-card__name">Inmobiliaria</span>
+              <span class="ig-card__tag">Tour de propiedades</span>
+            </div>
+          </div>
+          <div class="ig-card__footer">
+            <i class="ph ph-heart"></i>
+            <i class="ph ph-chat-circle"></i>
+            <i class="ph ph-paper-plane-tilt"></i>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESO -->
+  <section class="process" id="proceso">
+    <div class="container">
+      <h2 class="section-title" data-reveal>Cómo trabajamos con vos.</h2>
+
+      <div class="process__list">
+        <div class="process__step" data-reveal>
+          <span class="process__icon"><i class="ph-bold ph-magnifying-glass"></i></span>
+          <div class="process__body">
+            <h3>Auditoría gratuita</h3>
+            <p>Revisamos cómo está tu página web y tus redes hoy, y te contamos qué se puede mejorar.</p>
+          </div>
+        </div>
+
+        <div class="process__step" data-reveal data-reveal-delay="1">
+          <span class="process__icon"><i class="ph-bold ph-note-pencil"></i></span>
+          <div class="process__body">
+            <h3>Propuesta a medida</h3>
+            <p>Armamos un plan claro para tu negocio, con tiempos y precios definidos desde el principio.</p>
+          </div>
+        </div>
+
+        <div class="process__step" data-reveal data-reveal-delay="2">
+          <span class="process__icon"><i class="ph-bold ph-paint-brush-broad"></i></span>
+          <div class="process__body">
+            <h3>Diseño y contenido</h3>
+            <p>Creamos tu página web y las piezas para tus redes sociales, con la imagen de tu negocio.</p>
+          </div>
+        </div>
+
+        <div class="process__step" data-reveal data-reveal-delay="3">
+          <span class="process__icon"><i class="ph-bold ph-handshake"></i></span>
+          <div class="process__body">
+            <h3>Acompañamiento continuo</h3>
+            <p>Seguimos trabajando con vos: contenido nuevo cada mes, ajustes y soporte cuando lo necesites.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICIOS / PRECIOS -->
+  <section class="services" id="servicios">
+    <div class="container">
+      <h2 class="section-title" data-reveal>Tres formas de ayudarte a crecer.</h2>
+
+      <div class="services__grid">
+        <article class="service-card" data-reveal>
+          <i class="ph-bold ph-rocket-launch service-card__icon"></i>
+          <h3>Web Launch Pack</h3>
+          <p class="service-card__desc">Tu página web, lista y funcionando.</p>
+          <ul class="service-card__list">
+            <li>Una página web moderna y rápida</li>
+            <li>Textos que explican bien lo que ofrecés</li>
+            <li>Para que te encuentren fácil en Google</li>
+          </ul>
+        </article>
+
+        <article class="service-card" data-reveal data-reveal-delay="1">
+          <i class="ph-bold ph-chart-line-up service-card__icon"></i>
+          <h3>Growth Retainer</h3>
+          <p class="service-card__desc">Contenido y presencia en redes.</p>
+          <ul class="service-card__list">
+            <li>8 a 12 publicaciones cada mes</li>
+            <li>Fotos, videos y textos que venden</li>
+            <li>Una imagen de marca prolija y constante</li>
+          </ul>
+        </article>
+
+        <article class="service-card service-card--featured" data-reveal data-reveal-delay="2">
+          <span class="service-card__badge">Recomendado</span>
+          <i class="ph-bold ph-infinity service-card__icon"></i>
+          <h3>Synergy Ecosystem</h3>
+          <p class="service-card__desc">Web, redes y clientes, todo conectado.</p>
+          <ul class="service-card__list">
+            <li>Tu web y tus redes trabajando juntas</li>
+            <li>Respuestas automáticas por mail y WhatsApp</li>
+            <li>Cada consulta nueva queda guardada y ordenada</li>
+            <li>Publicaciones programadas en todas tus redes</li>
+          </ul>
+          <a href="#contacto" class="btn btn--primary btn--full">Pedí tu Auditoría Gratis</a>
+        </article>
+      </div>
+
+      <p class="pricing-note" id="precios" data-reveal>Cada propuesta se arma a medida según lo que necesita tu negocio. Pedí tu auditoría gratuita y te mandamos un presupuesto claro, sin sorpresas.</p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-banner" id="contacto">
+    <div class="cta-banner__texture" aria-hidden="true"></div>
+    <div class="container cta-banner__grid">
+      <div class="cta-banner__copy" data-reveal>
+        <h2>¿Listo para digitalizar tu empresa?</h2>
+        <p>Completá el formulario o escribinos por WhatsApp y te mandamos una revisión gratuita de tu web y tus redes.</p>
+        <ul class="cta-banner__points">
+          <li><i class="ph ph-check-circle"></i> Revisamos cómo está tu web y tus redes hoy</li>
+          <li><i class="ph ph-check-circle"></i> Te contamos qué se puede mejorar</li>
+          <li><i class="ph ph-check-circle"></i> Sin costo, sin compromiso</li>
+        </ul>
+        <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20mi%20auditor%C3%ADa%20gratis" target="_blank" rel="noopener" class="btn btn--ghost cta-banner__wa">
+          <i class="ph-bold ph-whatsapp-logo"></i>
+          Escribinos por WhatsApp
+        </a>
+      </div>
+
+      <form class="form" data-reveal data-reveal-delay="1" id="auditForm">
+        <div class="form__row">
+          <label for="name">Nombre</label>
+          <input type="text" id="name" name="name" placeholder="Tu nombre completo" required>
+        </div>
+        <div class="form__row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="nombre@empresa.com" required>
+        </div>
+        <div class="form__row">
+          <label for="website">Sitio web actual (opcional)</label>
+          <input type="text" id="website" name="website" placeholder="www.tuempresa.com">
+        </div>
+        <div class="form__row">
+          <label for="goal">Contanos qué necesitás</label>
+          <textarea id="goal" name="goal" rows="3" placeholder="Qué te gustaría lograr con tu página web o tus redes"></textarea>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">Solicitar Auditoría Gratis</button>
+        <p class="form__status" id="formStatus" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__grid">
+    <div class="footer__brand">
+      <a href="#top" class="nav__logo">
+        <svg class="nav__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M18 14C11.373 14 6 19.373 6 26C6 32.627 11.373 38 18 38C24.627 38 27 32 30 26C33 20 35.373 14 42 14C48.627 14 48.627 26 42 26C35.373 26 33 32 30 38C27 44 24.627 38 18 38" stroke="url(#markGrad)" stroke-width="3.4" stroke-linecap="round"/>
+        </svg>
+        <span class="nav__wordmark">Synergy<span class="nav__wordmark-accent">Solutions</span></span>
+      </a>
+      <p class="footer__slogan">Código preciso. Crecimiento automatizado.</p>
+      <div class="footer__social">
+        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
+        <a href="https://wa.me/5491128981201" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
+      </div>
+    </div>
+
+    <div class="footer__col">
+      <h4>Navegación</h4>
+      <a href="#servicios">Servicios</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#precios">Precios</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Legal</h4>
+      <a href="#">Términos y condiciones</a>
+      <a href="#">Política de privacidad</a>
+    </div>
+
+    <div class="footer__col">
+      <h4>Contacto</h4>
+      <a href="mailto:hola@synergysolutions.com">hola@synergysolutions.com</a>
+      <a href="https://wa.me/5491128981201" target="_blank" rel="noopener">+54 9 11 2898-1201</a>
+    </div>
+  </div>
+
+  <div class="container footer__bottom">
+    <span>© 2026 Synergy Solutions. Todos los derechos reservados.</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Synergy%20Solutions" target="_blank" rel="noopener" class="wa-float" aria-label="Escribinos por WhatsApp">
+  <i class="ph-bold ph-whatsapp-logo"></i>
+</a>
+
+<script src="js/main.js" defer></script>
+</body>
+</html>

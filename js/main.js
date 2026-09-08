@@ -1,0 +1,124 @@
+(() => {
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- Reveal on scroll ---- */
+  const revealEls = document.querySelectorAll('[data-reveal]');
+  revealEls.forEach(el => {
+    const delay = el.getAttribute('data-reveal-delay');
+    if (delay) el.style.setProperty('--reveal-delay', delay);
+  });
+
+  if (reduceMotion) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+  } else {
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+  }
+
+  /* ---- Nav scrolled state (via sentinel, no scroll listener) ---- */
+  const nav = document.getElementById('nav');
+  const sentinel = document.getElementById('top-sentinel');
+  if (nav && sentinel) {
+    const navObserver = new IntersectionObserver(
+      ([entry]) => nav.classList.toggle('is-scrolled', !entry.isIntersecting),
+      { threshold: 0 }
+    );
+    navObserver.observe(sentinel);
+  }
+
+  /* ---- Mobile menu ---- */
+  const burger = document.getElementById('navBurger');
+  const mobileMenu = document.getElementById('navMobile');
+  if (burger && mobileMenu) {
+    burger.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('is-open');
+      burger.setAttribute('aria-expanded', String(isOpen));
+      burger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+
+  /* ---- Speed gauge: draw ring + count up when in view ---- */
+  const speedCard = document.getElementById('speedCard');
+  const speedRingFill = document.getElementById('speedRingFill');
+  const speedValue = document.getElementById('speedValue');
+  const CIRCUMFERENCE = 327;
+  const TARGET = 100;
+
+  function animateSpeed() {
+    if (speedRingFill) {
+      speedRingFill.style.strokeDashoffset = String(CIRCUMFERENCE * (1 - TARGET / 100));
+    }
+    if (!speedValue) return;
+    if (reduceMotion) {
+      speedValue.textContent = String(TARGET);
+      return;
+    }
+    const duration = 1400;
+    const start = performance.now();
+    function tick(now) {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      speedValue.textContent = String(Math.round(eased * TARGET));
+      if (progress < 1) requestAnimationFrame(tick);
+    }
+    requestAnimationFrame(tick);
+  }
+
+  if (speedCard) {
+    if (reduceMotion) {
+      animateSpeed();
+    } else {
+      const speedObserver = new IntersectionObserver(([entry]) => {
+        if (entry.isIntersecting) {
+          animateSpeed();
+          speedObserver.disconnect();
+        }
+      }, { threshold: 0.4 });
+      speedObserver.observe(speedCard);
+    }
+  }
+
+  /* ---- Hero browser mockup: subtle pointer parallax ---- */
+  const browserMock = document.getElementById('browserMock');
+  const heroVisual = document.querySelector('.hero__visual');
+  if (browserMock && heroVisual && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    let raf = null;
+    heroVisual.addEventListener('mousemove', (e) => {
+      const rect = heroVisual.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      if (raf) cancelAnimationFrame(raf);
+      raf = requestAnimationFrame(() => {
+        browserMock.style.transform = `rotateX(${(-y * 4).toFixed(2)}deg) rotateY(${(x * 4).toFixed(2)}deg)`;
+      });
+    });
+    heroVisual.addEventListener('mouseleave', () => {
+      browserMock.style.transform = '';
+    });
+  }
+
+  /* ---- Form submit feedback (no backend wired) ---- */
+  const form = document.getElementById('auditForm');
+  const formStatus = document.getElementById('formStatus');
+  if (form && formStatus) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      formStatus.textContent = 'Gracias. Recibimos tu solicitud y te contactaremos pronto.';
+      form.reset();
+    });
+  }
+})();
