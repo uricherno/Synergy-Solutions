@@ -664,13 +664,18 @@ button{ font-family: inherit; }
 }
 
 .chat-mock{
-  background: var(--surface-2);
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.04);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-card);
   overflow: hidden;
-  box-shadow: 0 30px 60px -24px rgba(0,0,0,0.55);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06), 0 30px 60px -24px rgba(0,0,0,0.55);
   max-width: 400px;
   margin: 0 auto;
+}
+@media (prefers-reduced-transparency: reduce){
+  .chat-mock{ background: var(--surface-2); backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 .chat-mock__bar{
   display: flex;
@@ -836,18 +841,24 @@ button{ font-family: inherit; }
 }
 
 .service-card{
-  background: var(--surface);
-  border: 1px solid var(--border);
+  background: rgba(255,255,255,0.045);
+  backdrop-filter: blur(14px) saturate(140%);
+  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.12);
   border-radius: var(--radius-card);
   padding: 36px;
   display: flex;
   flex-direction: column;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
   transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
 }
 .service-card:hover{
   transform: translateY(-4px);
   border-color: var(--border-strong);
-  box-shadow: 0 20px 40px -20px rgba(0,0,0,0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 40px -20px rgba(0,0,0,0.5);
+}
+@media (prefers-reduced-transparency: reduce){
+  .service-card{ background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 .service-card__icon{ font-size: 1.7rem; color: var(--silver); margin-bottom: 20px; }
 .service-card h3{ font-size: 1.25rem; margin-bottom: 6px; }
@@ -954,14 +965,19 @@ button{ font-family: inherit; }
 .cta-banner__wa{ margin-top: 28px; }
 
 .form{
-  background: var(--surface);
-  border: 1px solid var(--border-strong);
+  background: rgba(255,255,255,0.045);
+  backdrop-filter: blur(16px) saturate(140%);
+  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  border: 1px solid rgba(255,255,255,0.14);
   border-radius: var(--radius-card);
   padding: 32px;
   display: flex;
   flex-direction: column;
   gap: 18px;
-  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.07), 0 30px 60px -30px rgba(0,0,0,0.6);
+}
+@media (prefers-reduced-transparency: reduce){
+  .form{ background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; }
 }
 .form__row{ display: flex; flex-direction: column; gap: 8px; }
 .form__row label{
