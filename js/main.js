@@ -111,13 +111,32 @@
     });
   }
 
-  /* ---- Form submit feedback (no backend wired) ---- */
+  /* ---- Form submit: abre un mail prellenado (el sitio no tiene backend propio) ---- */
   const form = document.getElementById('auditForm');
   const formStatus = document.getElementById('formStatus');
   if (form && formStatus) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
-      formStatus.textContent = 'Gracias. Recibimos tu solicitud y te contactaremos pronto.';
+
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const website = form.website.value.trim();
+      const goal = form.goal.value.trim();
+
+      const subject = `Auditoría digital - ${name || 'Nueva consulta'}`;
+      const bodyLines = [
+        `Nombre: ${name}`,
+        `Email: ${email}`,
+        website ? `Sitio web actual: ${website}` : null,
+        '',
+        'Qué necesita:',
+        goal || '(sin detalle)',
+      ].filter((line) => line !== null);
+
+      const mailto = `mailto:uricherno@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+      window.location.href = mailto;
+
+      formStatus.textContent = 'Se abrió tu programa de correo con los datos completos. Solo tenés que confirmar el envío.';
       form.reset();
     });
   }
