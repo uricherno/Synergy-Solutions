@@ -95,13 +95,27 @@ button{ font-family: inherit; }
 .btn:active{ transform: scale(0.97); }
 
 .btn--primary{
+  position: relative;
+  overflow: hidden;
   background: linear-gradient(135deg, var(--gold-soft), var(--gold));
   color: #1a1608;
   box-shadow: 0 8px 24px -8px rgba(212,175,55,0.55);
 }
+.btn--primary::after{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,0.55) 50%, transparent 70%);
+  transform: translateX(-120%);
+  transition: transform .6s var(--ease);
+}
 .btn--primary:hover{
   transform: translateY(-2px);
   box-shadow: 0 12px 28px -8px rgba(212,175,55,0.7);
+}
+.btn--primary:hover::after{ transform: translateX(120%); }
+@media (prefers-reduced-motion: reduce){
+  .btn--primary::after{ display: none; }
 }
 
 .btn--ghost{
@@ -153,7 +167,15 @@ button{ font-family: inherit; }
   gap: 10px;
   flex-shrink: 0;
 }
-.nav__mark{ width: 30px; height: 30px; }
+.nav__mark{
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1px solid var(--border-strong);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.35);
+  flex-shrink: 0;
+}
 .nav__wordmark{
   font-weight: 700;
   font-size: 1.05rem;
@@ -238,14 +260,45 @@ button{ font-family: inherit; }
   align-items: center;
   overflow: hidden;
 }
-.hero__glow{
+.hero__aurora{
   position: absolute;
-  inset: -20% -10% auto -10%;
-  height: 700px;
-  background:
-    radial-gradient(circle at 20% 20%, rgba(212,175,55,0.14), transparent 55%),
-    radial-gradient(circle at 80% 0%, rgba(192,192,192,0.10), transparent 50%);
+  inset: 0;
+  overflow: hidden;
   pointer-events: none;
+}
+.hero__blob{
+  position: absolute;
+  width: 46vw;
+  height: 46vw;
+  max-width: 620px;
+  max-height: 620px;
+  border-radius: 50%;
+  filter: blur(70px);
+  opacity: 0.5;
+  will-change: transform;
+}
+.hero__blob--gold{
+  top: -14%;
+  left: -8%;
+  background: radial-gradient(circle, rgba(212,175,55,0.32), transparent 68%);
+  animation: auroraDriftA 22s ease-in-out infinite;
+}
+.hero__blob--silver{
+  top: -4%;
+  right: -12%;
+  background: radial-gradient(circle, rgba(192,192,192,0.22), transparent 68%);
+  animation: auroraDriftB 26s ease-in-out infinite;
+}
+@keyframes auroraDriftA{
+  0%, 100%{ transform: translate(0, 0) scale(1); }
+  50%{ transform: translate(4%, 6%) scale(1.08); }
+}
+@keyframes auroraDriftB{
+  0%, 100%{ transform: translate(0, 0) scale(1); }
+  50%{ transform: translate(-5%, 4%) scale(1.05); }
+}
+@media (prefers-reduced-motion: reduce){
+  .hero__blob{ animation: none; }
 }
 
 .hero__grid{
@@ -257,11 +310,14 @@ button{ font-family: inherit; }
 }
 
 .hero__title{
+  display: flex;
+  flex-direction: column;
   font-size: clamp(1.8rem, 2.9vw, 2.5rem);
   line-height: 1.22;
   letter-spacing: -0.02em;
   color: var(--text);
 }
+.hero__title-line{ display: block; }
 
 .hero__subtitle{
   margin-top: 22px;
@@ -417,7 +473,28 @@ button{ font-family: inherit; }
   align-items: center;
   box-shadow: 0 24px 48px -18px rgba(0,0,0,0.6);
 }
+.speed-card__pulse{
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  transform: translateX(-50%) scale(1);
+  opacity: 0;
+  animation: speedPulse 2.6s ease-out infinite;
+}
+@keyframes speedPulse{
+  0%{ transform: translateX(-50%) scale(1); opacity: 0.5; }
+  100%{ transform: translateX(-50%) scale(1.35); opacity: 0; }
+}
+@media (prefers-reduced-motion: reduce){
+  .speed-card__pulse{ animation: none; opacity: 0; }
+}
+
 .speed-ring{
+  position: relative;
   width: 96px; height: 96px;
   transform: rotate(-90deg);
 }
@@ -557,6 +634,25 @@ button{ font-family: inherit; }
 }
 .ai__features i{ color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
 
+.ai__wa-note{
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 24px;
+  padding: 12px 18px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--border-strong);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  transition: border-color .2s var(--ease), color .2s var(--ease), transform .2s var(--ease);
+}
+.ai__wa-note i{ color: #25D366; font-size: 1.15rem; flex-shrink: 0; }
+.ai__wa-note:hover{
+  border-color: var(--silver);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
 .chat-mock{
   background: var(--surface-2);
   border: 1px solid var(--border);
@@ -574,7 +670,7 @@ button{ font-family: inherit; }
   background: rgba(255,255,255,0.03);
   border-bottom: 1px solid var(--border);
 }
-.chat-mock__bar i{ color: #25D366; font-size: 1.1rem; }
+.chat-mock__bar i{ color: var(--silver); font-size: 1.1rem; }
 .chat-mock__title{ font-weight: 600; font-size: 0.9rem; }
 .chat-mock__status{
   margin-left: auto;
@@ -819,7 +915,6 @@ button{ font-family: inherit; }
 }
 .cta-banner__points i{ color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
 .cta-banner__wa{ margin-top: 28px; }
-.cta-banner__wa i{ color: #25D366; font-size: 1.2em; }
 
 .form{
   background: var(--surface);
@@ -932,13 +1027,31 @@ button{ font-family: inherit; }
   .hero__ctas{ flex-direction: column; align-items: stretch; }
   .hero__ctas .btn{ width: 100%; }
 
-  .speed-card{ position: static; margin-top: 24px; width: 100%; align-items: flex-start; }
+  .speed-card{ position: relative; margin-top: 24px; width: 100%; align-items: flex-start; }
   .speed-card__label{ margin-top: -62px; margin-left: 8px; }
 
   .process__step{ gap: 16px; }
   .process__icon{ width: 44px; height: 44px; font-size: 1.2rem; }
 
   .footer__grid{ grid-template-columns: 1fr; gap: 32px; }
+
+  /* Secciones más compactas en pantallas chicas: en desktop el espaciado
+     amplio se lee como "premium", en mobile solo alarga el scroll. */
+  .ig-marquee{ padding: 56px 0 48px; }
+  .ai{ padding: 64px 0; }
+  .services{ padding: 64px 0; }
+  .process{ padding: 64px 0; }
+  .cta-banner{ padding: 64px 0; }
+  .footer{ padding: 56px 0 32px; }
+
+  .section-title{ margin-bottom: 32px; }
+
+  .service-card{ padding: 28px 24px; }
+  .service-card--featured{ padding-top: 40px; }
+
+  .form{ padding: 24px; }
+
+  .ig-card{ flex: 0 0 72vw; max-width: 240px; }
 }
 
 @media (max-width: 480px){

@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/bold/style.css">
 <link rel="stylesheet" href="css/style.css">
 
-<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect width=%22100%22 height=%22100%22 rx=%2220%22 fill=%22%231F2937%22/><text x=%2250%22 y=%2266%22 font-size=%2255%22 text-anchor=%22middle%22 fill=%22%23D4AF37%22 font-family=%22Arial%22>S</text></svg>">
+<link rel="icon" href="assets/logo.jpg">
 </head>
 <body>
 
@@ -23,15 +23,7 @@
 <header class="nav" id="nav">
   <div class="container nav__inner">
     <a href="#top" class="nav__logo" aria-label="Synergy Solutions, inicio">
-      <svg class="nav__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <defs>
-          <linearGradient id="markGrad" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
-            <stop offset="0" stop-color="#E8E8E8"/>
-            <stop offset="1" stop-color="#D4AF37"/>
-          </linearGradient>
-        </defs>
-        <path d="M18 14C11.373 14 6 19.373 6 26C6 32.627 11.373 38 18 38C24.627 38 27 32 30 26C33 20 35.373 14 42 14C48.627 14 48.627 26 42 26C35.373 26 33 32 30 38C27 44 24.627 38 18 38" stroke="url(#markGrad)" stroke-width="3.4" stroke-linecap="round"/>
-      </svg>
+      <img class="nav__mark" src="assets/logo.jpg" alt="Synergy Solutions" width="34" height="34">
       <span class="nav__wordmark">Synergy<span class="nav__wordmark-accent">Solutions</span></span>
     </a>
 
@@ -62,22 +54,28 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="hero__glow" aria-hidden="true"></div>
+    <div class="hero__aurora" aria-hidden="true">
+      <span class="hero__blob hero__blob--gold"></span>
+      <span class="hero__blob hero__blob--silver"></span>
+    </div>
     <div class="container hero__grid">
 
-      <div class="hero__content" data-reveal>
-        <h1 class="hero__title">La web rápida que necesitás.<br>La IA que responde al instante.</h1>
-        <p class="hero__subtitle">Una página web veloz, contenido para tus redes y un asistente que responde por Instagram y WhatsApp al instante.</p>
-        <div class="hero__ctas">
+      <div class="hero__content">
+        <h1 class="hero__title">
+          <span class="hero__title-line" data-reveal>La web rápida que necesitás.</span>
+          <span class="hero__title-line" data-reveal data-reveal-delay="1">La IA que responde al instante.</span>
+        </h1>
+        <p class="hero__subtitle" data-reveal data-reveal-delay="2">Una página web veloz, contenido para tus redes y un asistente que responde por Instagram y WhatsApp al instante.</p>
+        <div class="hero__ctas" data-reveal data-reveal-delay="3">
           <a href="#contacto" class="btn btn--primary">Solicitar Auditoría Digital</a>
-          <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20probar%20el%20asistente%20de%20Synergy%20Solutions" target="_blank" rel="noopener" class="btn btn--ghost">
+          <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Synergy%20Solutions" target="_blank" rel="noopener" class="btn btn--ghost">
             <i class="ph-bold ph-whatsapp-logo"></i>
-            Probar Agente en Vivo
+            Escribinos por WhatsApp
           </a>
         </div>
       </div>
 
-      <div class="hero__visual" data-reveal data-reveal-delay="1">
+      <div class="hero__visual" data-reveal data-reveal-delay="4">
         <div class="browser-float">
           <div class="browser-mock" id="browserMock">
             <div class="browser-mock__bar">
@@ -112,6 +110,7 @@
         </div>
 
         <div class="speed-card" id="speedCard">
+          <span class="speed-card__pulse" aria-hidden="true"></span>
           <svg class="speed-ring" viewBox="0 0 120 120" aria-hidden="true">
             <circle class="speed-ring__track" cx="60" cy="60" r="52"></circle>
             <circle class="speed-ring__fill" id="speedRingFill" cx="60" cy="60" r="52"></circle>
@@ -339,19 +338,23 @@
 
       <div class="ai__copy" data-reveal>
         <h2>Un asistente que responde antes de que se vayan.</h2>
-        <p>Cuando alguien te escribe por Instagram o WhatsApp, cada minuto de demora es una venta que se puede perder. Nuestro asistente responde al instante, entiende qué necesita esa persona y agenda la cita solo, todos los días, a toda hora.</p>
+        <p>Cuando alguien te escribe por Instagram, cada minuto de demora es una venta que se puede perder. Nuestro asistente responde al instante, entiende qué necesita esa persona y agenda la cita solo, todos los días, a toda hora.</p>
         <ul class="ai__features">
           <li><i class="ph-bold ph-lightning"></i> Responde al instante, sin esperas</li>
           <li><i class="ph-bold ph-chats-circle"></i> Entiende qué necesita cada cliente</li>
           <li><i class="ph-bold ph-calendar-check"></i> Agenda solo, directo en tu calendario</li>
-          <li><i class="ph-bold ph-plug"></i> Conectado con WhatsApp, Instagram y tu sistema de clientes</li>
+          <li><i class="ph-bold ph-plug"></i> Conectado con Instagram y tu sistema de citas</li>
         </ul>
+        <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20agendar%20una%20llamada" target="_blank" rel="noopener" class="ai__wa-note">
+          <i class="ph-bold ph-whatsapp-logo"></i>
+          ¿Preferís coordinar por llamada? Escribinos directo por WhatsApp.
+        </a>
       </div>
 
       <div class="ai__visual" data-reveal data-reveal-delay="1">
         <div class="chat-mock">
           <div class="chat-mock__bar">
-            <i class="ph-bold ph-whatsapp-logo"></i>
+            <i class="ph-bold ph-instagram-logo"></i>
             <span class="chat-mock__title">Asistente Synergy</span>
             <span class="chat-mock__status"><span class="status-dot"></span>En línea</span>
           </div>
@@ -479,9 +482,9 @@
           <li><i class="ph ph-check-circle"></i> Te contamos qué se puede mejorar</li>
           <li><i class="ph ph-check-circle"></i> Sin costo, sin compromiso</li>
         </ul>
-        <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20probar%20el%20asistente%20de%20Synergy%20Solutions" target="_blank" rel="noopener" class="btn btn--ghost cta-banner__wa">
+        <a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Synergy%20Solutions" target="_blank" rel="noopener" class="btn btn--ghost cta-banner__wa">
           <i class="ph-bold ph-whatsapp-logo"></i>
-          Probar Agente en Vivo
+          Escribinos por WhatsApp
         </a>
       </div>
 
@@ -514,14 +517,12 @@
   <div class="container footer__grid">
     <div class="footer__brand">
       <a href="#top" class="nav__logo">
-        <svg class="nav__mark" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <path d="M18 14C11.373 14 6 19.373 6 26C6 32.627 11.373 38 18 38C24.627 38 27 32 30 26C33 20 35.373 14 42 14C48.627 14 48.627 26 42 26C35.373 26 33 32 30 38C27 44 24.627 38 18 38" stroke="url(#markGrad)" stroke-width="3.4" stroke-linecap="round"/>
-        </svg>
+        <img class="nav__mark" src="assets/logo.jpg" alt="Synergy Solutions" width="34" height="34">
         <span class="nav__wordmark">Synergy<span class="nav__wordmark-accent">Solutions</span></span>
       </a>
       <p class="footer__slogan">Código preciso. Crecimiento automatizado.</p>
       <div class="footer__social">
-        <a href="#" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
+        <a href="https://www.instagram.com/synergy_solutions.ia/" target="_blank" rel="noopener" aria-label="Instagram"><i class="ph ph-instagram-logo"></i></a>
         <a href="#" aria-label="LinkedIn"><i class="ph ph-linkedin-logo"></i></a>
         <a href="https://wa.me/5491128981201" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="ph ph-whatsapp-logo"></i></a>
       </div>
@@ -543,7 +544,7 @@
 
     <div class="footer__col">
       <h4>Contacto</h4>
-      <a href="mailto:hola@synergysolutions.com">hola@synergysolutions.com</a>
+      <a href="mailto:uricherno@gmail.com">uricherno@gmail.com</a>
       <a href="https://wa.me/5491128981201" target="_blank" rel="noopener">+54 9 11 2898-1201</a>
     </div>
   </div>
@@ -553,7 +554,7 @@
   </div>
 </footer>
 
-<a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20probar%20el%20asistente%20de%20Synergy%20Solutions" target="_blank" rel="noopener" class="wa-float" aria-label="Probar el agente por WhatsApp">
+<a href="https://wa.me/5491128981201?text=Hola%2C%20quiero%20saber%20m%C3%A1s%20sobre%20Synergy%20Solutions" target="_blank" rel="noopener" class="wa-float" aria-label="Escribinos por WhatsApp">
   <i class="ph-bold ph-whatsapp-logo"></i>
 </a>
 
