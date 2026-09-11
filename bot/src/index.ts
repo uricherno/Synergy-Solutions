@@ -8,6 +8,7 @@ import {
   type IgMessage,
 } from './instagram.js';
 import { generateReply } from './ai.js';
+import { notifyNewMessage } from './notify.js';
 import { getLastMessageId, setLastMessageId } from './state.js';
 
 function sortByDate(messages: IgMessage[]): IgMessage[] {
@@ -30,6 +31,8 @@ async function processConversation(conversationId: string, myAccountId: string):
   console.log(
     `[${conversationId}] mensaje nuevo de ${lastInbound.fromUsername ?? lastInbound.fromId}: "${lastInbound.text}"`
   );
+
+  await notifyNewMessage(lastInbound);
 
   const reply = await generateReply(sorted, myAccountId);
   if (!reply) {
@@ -75,8 +78,13 @@ async function main(): Promise<void> {
   console.log(`Cuenta de Instagram conectada: ${myAccountId}`);
   console.log(`Revisando mensajes nuevos cada ${config.pollIntervalMs / 1000}s. Ctrl+C para detener.`);
 
-  await tick(myAccountId);
-  setInterval(() => tick(myAccountId), config.pollIntervalMs);
+  // Bucle que se reprograma a sí mismo en vez de setInterval: así nunca arranca
+  // una revisión nueva mientras la anterior sigue en curso (evita responder o
+  // agendar dos veces el mismo mensaje si una vuelta tarda más que el intervalo).
+  for (;;) {
+    await tick(myAccountId);
+    await new Promise((resolve) => setTimeout(resolve, config.pollIntervalMs));
+  }
 }
 
 main().catch((err) => {

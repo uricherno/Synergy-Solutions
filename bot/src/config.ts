@@ -17,4 +17,5 @@ export const config = {
   pollIntervalMs: Number(process.env.POLL_INTERVAL_MS || 20000),
   websiteUrl: process.env.WEBSITE_URL || 'https://synergy-solutions-six.vercel.app/',
   whatsappNumber: process.env.WHATSAPP_NUMBER || '5491128981201',
+  alertEmail: process.env.ALERT_EMAIL || 'uricherno@gmail.com',
 };

@@ -1,5 +1,4 @@
-import { composio } from './composioClient.js';
-import { config } from './config.js';
+import { execTool } from './composioClient.js';
 
 export type IgMessage = {
   id: string;
@@ -25,16 +24,7 @@ function unwrapList(raw: unknown): any[] {
   return [];
 }
 
-async function exec<T = unknown>(slug: string, args: Record<string, unknown>): Promise<T> {
-  const result = await composio.tools.execute(slug, {
-    userId: config.composioUserId,
-    arguments: args,
-  });
-  if (!result.successful) {
-    throw new Error(`${slug} falló: ${JSON.stringify(result.error)}`);
-  }
-  return result.data as T;
-}
+const exec = execTool;
 
 export async function getMyAccountId(): Promise<string | null> {
   try {
