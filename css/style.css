@@ -789,6 +789,33 @@ button{ font-family: inherit; }
   font-size: 0.95rem;
 }
 
+/* ============ POR QUÉ ELEGIRNOS ============ */
+.why{ padding: 88px 0 96px; }
+.why__title{ margin-bottom: 56px; }
+
+.why__grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 48px;
+}
+
+.why__item{ max-width: 34ch; }
+.why__icon{
+  display: block;
+  font-size: 1.8rem;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+.why__item h3{
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+.why__item p{
+  color: var(--text-secondary);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
 /* ============ SERVICES ============ */
 .services{ padding: 96px 0; }
 
@@ -1012,6 +1039,8 @@ button{ font-family: inherit; }
   .hero__grid{ grid-template-columns: 1fr; gap: 56px; }
   .hero__visual{ max-width: 460px; }
   .ai__grid{ grid-template-columns: 1fr; gap: 48px; }
+  .why__grid{ grid-template-columns: 1fr; gap: 36px; }
+  .why__item{ max-width: none; }
   .services__grid{ grid-template-columns: 1fr; }
   .service-card--featured .service-card__list{ grid-template-columns: 1fr; }
   .cta-banner__grid{ grid-template-columns: 1fr; gap: 48px; }
@@ -1039,6 +1068,8 @@ button{ font-family: inherit; }
      amplio se lee como "premium", en mobile solo alarga el scroll. */
   .ig-marquee{ padding: 56px 0 48px; }
   .ai{ padding: 64px 0; }
+  .why{ padding: 56px 0 64px; }
+  .why__title{ margin-bottom: 36px; }
   .services{ padding: 64px 0; }
   .process{ padding: 64px 0; }
   .cta-banner{ padding: 64px 0; }
