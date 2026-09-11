@@ -28,6 +28,16 @@ html{ scroll-behavior: smooth; }
   html{ scroll-behavior: auto; }
 }
 
+/* Foco de teclado visible y consistente en todo el sitio */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible{
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
 body{
   margin:0;
   background: var(--bg);
@@ -972,13 +982,34 @@ button{ font-family: inherit; }
   transition: border-color .2s var(--ease), background-color .2s var(--ease);
 }
 .form__row input::placeholder,
-.form__row textarea::placeholder{ color: #6B7280; }
+.form__row textarea::placeholder{ color: #A9B2BF; }
 .form__row input:focus,
 .form__row textarea:focus{
   outline: none;
   border-color: var(--gold);
   background: rgba(255,255,255,0.06);
+  box-shadow: 0 0 0 3px rgba(212,175,55,0.35);
 }
+.form__consent{
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+.form__consent input[type="checkbox"]{
+  margin-top: 3px;
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  accent-color: var(--gold);
+}
+.form__consent a{
+  color: var(--silver);
+  text-decoration: underline;
+}
+.form__consent a:hover{ color: var(--text); }
 .form__status{
   font-size: 0.85rem;
   color: var(--gold-soft);
@@ -1030,7 +1061,7 @@ button{ font-family: inherit; }
   margin-top: 56px;
   padding-top: 24px;
   border-top: 1px solid var(--border);
-  color: #6B7280;
+  color: var(--text-secondary);
   font-size: 0.82rem;
 }
 
@@ -1120,4 +1151,46 @@ button{ font-family: inherit; }
 }
 @media (max-width: 768px){
   .wa-float{ right: 16px; bottom: 16px; width: 52px; height: 52px; font-size: 1.45rem; }
+}
+
+/* ============ LEGAL PAGES ============ */
+.legal{ padding: 64px 0 96px; }
+.legal__content{ max-width: 720px; }
+.legal__content h1{
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin-bottom: 8px;
+}
+.legal__updated{
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 32px;
+}
+.legal__content h2{
+  font-size: 1.15rem;
+  margin-top: 36px;
+  margin-bottom: 12px;
+}
+.legal__content p{
+  color: var(--text-secondary);
+  line-height: 1.7;
+  margin-bottom: 14px;
+}
+.legal__content ul{
+  margin: 0 0 14px;
+  padding-left: 20px;
+  list-style: disc;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+.legal__content a{
+  color: var(--silver);
+  text-decoration: underline;
+}
+.legal__content a:hover{ color: var(--text); }
+.legal__note{
+  margin-top: 40px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+  font-size: 0.82rem;
+  font-style: italic;
 }
