@@ -161,15 +161,21 @@
     } else {
       gsap.registerPlugin(ScrollTrigger);
 
+      // Distancia fija en píxeles por escena (no "%", que con pin +
+      // invalidateOnRefresh se recalcula sobre el propio pin-spacer y crece
+      // sin control; tampoco window.innerHeight, que puede leerse en 0 antes
+      // del primer paint).
+      const PX_PER_SCENE = 700;
+      const scrollDistance = PX_PER_SCENE * showcaseScenes.length;
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: showcaseStage,
           start: 'top top',
-          end: '+=' + (showcaseScenes.length * 90) + '%',
+          end: '+=' + scrollDistance,
           scrub: 0.6,
           pin: true,
           anticipatePin: 1,
-          invalidateOnRefresh: true,
         },
       });
 

@@ -655,6 +655,7 @@ button{ font-family: inherit; }
   padding: 40px;
   display: flex;
   align-items: center;
+  background: var(--surface);
 }
 .showcase__scene:first-child{ clip-path: none; }
 
