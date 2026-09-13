@@ -140,4 +140,62 @@
       form.reset();
     });
   }
+
+  /* ---- Showcase: transformación de la web pineada al scroll ---- */
+  const showcaseStage = document.getElementById('showcaseStage');
+  const showcaseScenes = showcaseStage ? showcaseStage.querySelectorAll('.showcase__scene') : [];
+  const showcaseDots = showcaseStage ? showcaseStage.querySelectorAll('.showcase__dot') : [];
+  const showcaseCaption = document.getElementById('showcaseCaption');
+
+  function setActiveScene(index) {
+    showcaseDots.forEach((dot, i) => dot.classList.toggle('is-active', i === index));
+    if (showcaseCaption && showcaseScenes[index]) {
+      showcaseCaption.textContent = showcaseScenes[index].dataset.caption || '';
+    }
+  }
+
+  if (showcaseStage && showcaseScenes.length > 1) {
+    if (reduceMotion || typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') {
+      // Sin animación: se muestra la primera escena, fija.
+      setActiveScene(0);
+    } else {
+      gsap.registerPlugin(ScrollTrigger);
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: showcaseStage,
+          start: 'top top',
+          end: '+=' + (showcaseScenes.length * 90) + '%',
+          scrub: 0.6,
+          pin: true,
+          anticipatePin: 1,
+          invalidateOnRefresh: true,
+        },
+      });
+
+      showcaseScenes.forEach((scene, i) => {
+        if (i === 0) return;
+        tl.fromTo(
+          scene,
+          { '--reveal': '100%' },
+          {
+            '--reveal': '0%',
+            duration: 1,
+            ease: 'none',
+            onStart: () => setActiveScene(i),
+            onReverseComplete: () => setActiveScene(i - 1),
+          }
+        );
+        tl.to({}, { duration: 0.35 });
+      });
+
+      // Las fotos del carrusel (picsum) cargan después del layout inicial y
+      // corren la posición real de esta sección: recalculamos cuando terminan
+      // de cargar, y de nuevo cuando la tipografía web asienta las medidas.
+      window.addEventListener('load', () => ScrollTrigger.refresh());
+      if (document.fonts && document.fonts.ready) {
+        document.fonts.ready.then(() => ScrollTrigger.refresh());
+      }
+    }
+  }
 })();

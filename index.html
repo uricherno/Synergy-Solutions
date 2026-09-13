@@ -29,7 +29,7 @@
     </a>
 
     <nav class="nav__links" aria-label="Navegación principal">
-      <a href="#incluye">Qué incluye</a>
+      <a href="#showcase">Lo que hacemos</a>
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="#precios">Precios</a>
@@ -43,7 +43,7 @@
   </div>
 
   <div class="nav__mobile" id="navMobile">
-    <a href="#incluye">Qué incluye</a>
+    <a href="#showcase">Lo que hacemos</a>
     <a href="#servicios">Servicios</a>
     <a href="#proceso">Cómo trabajamos</a>
     <a href="#precios">Precios</a>
@@ -333,48 +333,69 @@
     </div>
   </section>
 
-  <!-- QUÉ INCLUYE -->
-  <section class="includes" id="incluye">
-    <div class="container">
-      <h2 class="section-title" data-reveal>Todo lo que incluye tu proyecto.</h2>
-      <p class="includes__subtitle" data-reveal data-reveal-delay="1">Sin letra chica: esto es lo que se lleva cada web que armamos.</p>
+  <!-- SHOWCASE: TRANSFORMACIÓN EN SCROLL -->
+  <section class="showcase" id="showcase">
+    <div class="container showcase__intro">
+      <span class="eyebrow" data-reveal>Lo que hacemos</span>
+      <h2 class="section-title" data-reveal data-reveal-delay="1">Una web se puede ver de mil formas.<br>Elegimos la que te haga vender.</h2>
+    </div>
 
-      <div class="includes__grid">
-        <article class="bento-card bento-card--wide" data-reveal>
-          <i class="ph-bold ph-devices bento-card__icon"></i>
-          <h3>Diseño responsive</h3>
-          <p>Tu web se ve prolija en celular, tablet y computadora, sin excepciones.</p>
-        </article>
+    <div class="showcase__stage" id="showcaseStage">
+      <div class="showcase__frame">
+        <div class="browser-mock__bar">
+          <span class="dot dot--red"></span>
+          <span class="dot dot--yellow"></span>
+          <span class="dot dot--green"></span>
+          <span class="browser-mock__url" id="showcaseUrl"><i class="ph ph-lock-simple"></i>tuempresa.com</span>
+        </div>
 
-        <article class="bento-card" data-reveal data-reveal-delay="1">
-          <i class="ph-bold ph-magnifying-glass bento-card__icon"></i>
-          <h3>SEO técnico</h3>
-          <p>Estructurada para que Google te encuentre y te posicione mejor.</p>
-        </article>
+        <div class="showcase__scenes">
+          <article class="showcase__scene showcase__scene--minimal" data-caption="Minimalista y elegante" style="z-index:1;">
+            <div class="showcase__scene-inner">
+              <span class="showcase__rule"></span>
+              <span class="mock-line mock-line--lg" style="width:70%"></span>
+              <span class="mock-line mock-line--lg mock-line--short"></span>
+              <span class="mock-pill mock-pill--cta" style="margin-top:18px"></span>
+            </div>
+          </article>
 
-        <article class="bento-card" data-reveal data-reveal-delay="2">
-          <i class="ph-bold ph-lightning bento-card__icon"></i>
-          <h3>Velocidad de carga</h3>
-          <p>Páginas livianas que cargan rápido, sin hacer esperar a nadie.</p>
-        </article>
+          <article class="showcase__scene showcase__scene--bold" data-caption="Bold y de alto impacto" style="z-index:2;">
+            <div class="showcase__scene-inner">
+              <span class="showcase__block"></span>
+              <span class="mock-line mock-line--lg" style="width:85%; height:22px;"></span>
+              <span class="mock-line mock-line--lg mock-line--short" style="height:22px;"></span>
+            </div>
+          </article>
 
-        <article class="bento-card" data-reveal data-reveal-delay="3">
-          <i class="ph-bold ph-image-square bento-card__icon"></i>
-          <h3>Contenido para redes</h3>
-          <p>Publicaciones listas para subir, alineadas a tu imagen de marca.</p>
-        </article>
+          <article class="showcase__scene showcase__scene--editorial" data-caption="Editorial, a puro contenido" style="z-index:3;">
+            <div class="showcase__scene-inner showcase__scene-inner--split">
+              <div class="showcase__col">
+                <span class="mock-line mock-line--nav"></span>
+                <span class="mock-line mock-line--nav" style="width:60%"></span>
+                <span class="showcase__quote"></span>
+              </div>
+              <div class="showcase__col showcase__col--art"></div>
+            </div>
+          </article>
 
-        <article class="bento-card" data-reveal data-reveal-delay="4">
-          <i class="ph-bold ph-shield-check bento-card__icon"></i>
-          <h3>Seguridad y backups</h3>
-          <p>Tu sitio protegido y respaldado, para que nunca pierdas tu trabajo.</p>
-        </article>
+          <article class="showcase__scene showcase__scene--shop" data-caption="Listo para vender online" style="z-index:4;">
+            <div class="showcase__scene-inner showcase__scene-inner--grid">
+              <span class="showcase__product"></span>
+              <span class="showcase__product"></span>
+              <span class="showcase__product"></span>
+            </div>
+          </article>
+        </div>
+      </div>
 
-        <article class="bento-card bento-card--wide" data-reveal data-reveal-delay="5">
-          <i class="ph-bold ph-headset bento-card__icon"></i>
-          <h3>Soporte continuo</h3>
-          <p>Seguimos disponibles después de la entrega, para ajustes y dudas cuando las necesites.</p>
-        </article>
+      <div class="showcase__meta">
+        <div class="showcase__dots" aria-hidden="true">
+          <span class="showcase__dot is-active"></span>
+          <span class="showcase__dot"></span>
+          <span class="showcase__dot"></span>
+          <span class="showcase__dot"></span>
+        </div>
+        <p class="showcase__caption" id="showcaseCaption">Minimalista y elegante</p>
       </div>
     </div>
   </section>
@@ -570,7 +591,7 @@
 
     <div class="footer__col">
       <h4>Navegación</h4>
-      <a href="#incluye">Qué incluye</a>
+      <a href="#showcase">Lo que hacemos</a>
       <a href="#servicios">Servicios</a>
       <a href="#proceso">Cómo trabajamos</a>
       <a href="#precios">Precios</a>
@@ -598,6 +619,8 @@
   <i class="ph-bold ph-whatsapp-logo"></i>
 </a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js" defer></script>
 <script src="js/main.js" defer></script>
 </body>
 </html>
