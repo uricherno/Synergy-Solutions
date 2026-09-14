@@ -191,7 +191,7 @@
         goal || '(sin detalle)',
       ].filter((line) => line !== null);
 
-      const mailto = `mailto:uricherno@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
+      const mailto = `mailto:synergysolutions@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(bodyLines.join('\n'))}`;
       window.location.href = mailto;
 
       formStatus.textContent = 'Se abrió tu programa de correo con los datos completos. Solo tenés que confirmar el envío.';
