@@ -861,18 +861,33 @@ button{ font-family: inherit; }
   padding: 36px;
   display: flex;
   flex-direction: column;
+  position: relative;
+  overflow: hidden;
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
-  transition: transform .3s var(--ease), border-color .3s var(--ease), box-shadow .3s var(--ease);
+  transition: transform .35s cubic-bezier(.22,1,.36,1), border-color .35s var(--ease), box-shadow .35s var(--ease);
 }
+.service-card::before{
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .4s var(--ease);
+}
+.service-card:hover::before{ transform: scaleX(1); }
 .service-card:hover{
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--border-strong);
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 20px 40px -20px rgba(0,0,0,0.5);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.08), 0 24px 44px -20px rgba(0,0,0,0.55);
 }
-.service-card__icon{ transition: transform .3s var(--ease); }
-.service-card:hover .service-card__icon{ transform: scale(1.15) rotate(-6deg); }
+.service-card__icon{ transition: transform .4s cubic-bezier(.34,1.56,.64,1); }
+.service-card:hover .service-card__icon{ transform: scale(1.15) rotate(-8deg); }
 @media (prefers-reduced-motion: reduce){
   .service-card:hover .service-card__icon{ transform: none; }
+  .service-card:hover{ transform: none; }
+  .service-card::before{ transition: none; }
 }
 @media (prefers-reduced-transparency: reduce){
   .service-card{ background: var(--surface); backdrop-filter: none; -webkit-backdrop-filter: none; }
@@ -922,6 +937,14 @@ button{ font-family: inherit; }
   background: linear-gradient(135deg, var(--gold-soft), var(--gold));
   padding: 5px 12px;
   border-radius: var(--radius-pill);
+  animation: badgePulse 2.6s ease-in-out infinite;
+}
+@keyframes badgePulse{
+  0%, 100%{ box-shadow: 0 0 0 0 rgba(212,175,55,0.45); }
+  50%{ box-shadow: 0 0 0 6px rgba(212,175,55,0); }
+}
+@media (prefers-reduced-motion: reduce){
+  .service-card__badge{ animation: none; }
 }
 
 .pricing-note{
