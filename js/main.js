@@ -170,6 +170,12 @@
     form.addEventListener('submit', (e) => {
       e.preventDefault();
 
+      // Honeypot: los bots suelen completar todos los campos, incluido este,
+      // que para una persona real queda oculto visualmente.
+      if (form.company && form.company.value.trim() !== '') {
+        return;
+      }
+
       const name = form.name.value.trim();
       const email = form.email.value.trim();
       const website = form.website.value.trim();

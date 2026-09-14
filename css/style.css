@@ -1013,6 +1013,15 @@ button{ font-family: inherit; }
 .cta-banner__points i{ color: var(--gold); font-size: 1.2rem; flex-shrink: 0; }
 .cta-banner__wa{ margin-top: 28px; }
 
+.form__hp{
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
 .form{
   background: rgba(255,255,255,0.045);
   backdrop-filter: blur(16px) saturate(140%);
