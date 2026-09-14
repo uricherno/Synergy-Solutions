@@ -111,6 +111,58 @@
     });
   }
 
+  /* ---- Fondo aurora: sigue al mouse por toda la sección hero ---- */
+  const heroSection = document.querySelector('.hero');
+  const heroBlobs = document.querySelectorAll('.hero__blob');
+  if (heroSection && heroBlobs.length && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    const hasGsap = typeof gsap !== 'undefined';
+    const blobMovers = hasGsap
+      ? [...heroBlobs].map((blob) => ({ x: gsap.quickTo(blob, 'x', { duration: 0.9, ease: 'power3.out' }), y: gsap.quickTo(blob, 'y', { duration: 0.9, ease: 'power3.out' }) }))
+      : null;
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      heroBlobs.forEach((blob, i) => {
+        const strength = i % 2 === 0 ? 26 : -22;
+        if (blobMovers) {
+          blobMovers[i].x(x * strength);
+          blobMovers[i].y(y * strength);
+        } else {
+          blob.style.transform = `translate(${(x * strength).toFixed(1)}px, ${(y * strength).toFixed(1)}px)`;
+        }
+      });
+    });
+    heroSection.addEventListener('mouseleave', () => {
+      heroBlobs.forEach((blob, i) => {
+        if (blobMovers) {
+          blobMovers[i].x(0);
+          blobMovers[i].y(0);
+        } else {
+          blob.style.transform = '';
+        }
+      });
+    });
+  }
+
+  /* ---- Botones magnéticos: solo los 1-2 focales para no saturar ---- */
+  const magneticEls = document.querySelectorAll('[data-magnetic]');
+  if (magneticEls.length && typeof gsap !== 'undefined' && !reduceMotion && window.matchMedia('(pointer: fine)').matches) {
+    magneticEls.forEach((el) => {
+      const moveX = gsap.quickTo(el, 'x', { duration: 0.4, ease: 'power3.out' });
+      const moveY = gsap.quickTo(el, 'y', { duration: 0.4, ease: 'power3.out' });
+      el.addEventListener('mousemove', (e) => {
+        const rect = el.getBoundingClientRect();
+        moveX((e.clientX - rect.left - rect.width / 2) * 0.25);
+        moveY((e.clientY - rect.top - rect.height / 2) * 0.3);
+      });
+      el.addEventListener('mouseleave', () => {
+        moveX(0);
+        moveY(0);
+      });
+    });
+  }
+
   /* ---- Form submit: abre un mail prellenado (el sitio no tiene backend propio) ---- */
   const form = document.getElementById('auditForm');
   const formStatus = document.getElementById('formStatus');
